@@ -223,6 +223,7 @@ function capitalizeFirst(str) {
 }
 
 function drawEndScreen() {
+  if (dpad) dpad.style.display = 'none';
   // Draw a vibrant gradient background
   const grad = ctx.createLinearGradient(0, 0, canvas.width, canvas.height);
   grad.addColorStop(0, '#0a0847'); // dark blue
@@ -322,7 +323,7 @@ function drawArena() {
       const tile = arena[y][x];
       let color = COLORS.path;
       if (tile === 0) color = COLORS.wall;
-      ctx.fillStyle = color;
+      ctx.fillStyle = color;    
       ctx.fillRect(x * TILE_SIZE, y * TILE_SIZE, TILE_SIZE, TILE_SIZE);
       // Draw exit image
       if (tile === 2) {
@@ -437,6 +438,10 @@ function render() {
   else if (gameState === 'end') drawEndScreen();
 }
 
+function isMobileViewport() {
+  return window.innerWidth <= 700;
+}
+
 // Update click and mousemove area for new button size and position
 canvas.addEventListener('mousemove', function(e) {
   if (gameState !== 'end') return;
@@ -476,13 +481,48 @@ canvas.addEventListener('click', function(e) {
   }
 });
 
+const welcomeScreen = document.getElementById('welcome-screen');
+const startBtn = document.getElementById('start-btn');
+const dpad = document.getElementById('dpad-controls');
+const body = document.body;
+
 function startGame() {
   resetCharacters();
   gameState = 'playing';
   winner = null;
   if (loop) clearInterval(loop);
   loop = setInterval(gameLoop, 300);
+  if (dpad) dpad.style.display = isMobileViewport() ? 'flex' : 'none';
   render();
+}
+
+// Hide D-pad on welcome screen
+if (dpad) dpad.style.display = 'none';
+
+// Restore Start Game button functionality
+if (startBtn) {
+  startBtn.onclick = () => {
+    welcomeScreen.style.display = 'none';
+    canvas.style.display = 'block';
+    if (dpad) dpad.style.display = isMobileViewport() ? 'flex' : 'none';
+    body.classList.add('pink-grid-bg');
+    startGame();
+  };
+}
+
+// D-pad controls for mobile
+if (dpad) {
+  dpad.addEventListener('click', function(e) {
+    if (gameState !== 'playing') return;
+    if (e.target.classList.contains('dpad-btn')) {
+      const dir = e.target.getAttribute('data-direction');
+      if (dir === 'up') player.move(0, -1);
+      if (dir === 'down') player.move(0, 1);
+      if (dir === 'left') player.move(-1, 0);
+      if (dir === 'right') player.move(1, 0);
+      render();
+    }
+  });
 }
 
 window.addEventListener("keydown", e => {
@@ -497,17 +537,11 @@ window.addEventListener("keydown", e => {
 // Initial setup
 resetCharacters();
 render();
+});
 
-const welcomeScreen = document.getElementById('welcome-screen');
-const startBtn = document.getElementById('start-btn');
-const body = document.body;
-
-if (startBtn) {
-  startBtn.onclick = () => {
-    welcomeScreen.style.display = 'none';
-    canvas.style.display = 'block';
-    body.classList.add('pink-grid-bg');
-    startGame();
-  };
-}
+// Listen for window resize to show/hide dpad responsively
+window.addEventListener('resize', () => {
+  if (gameState === 'playing' && dpad) {
+    dpad.style.display = isMobileViewport() ? 'flex' : 'none';
+  }
 });
