@@ -143,10 +143,10 @@ canvas {
         max-height: 98vw;
     }
     .dpad-btn {
-        width: 48px;
-        height: 48px;
-        font-size: 1.5rem;
-        border-radius: 12px;
+        width: 64px;
+        height: 64px;
+        font-size: 2.2rem;
+        border-radius: 16px;
     }
     body {
         flex-direction: column;
@@ -180,10 +180,10 @@ canvas {
         max-height: 96vw;
     }
     .dpad-btn {
-        width: 36px;
-        height: 36px;
-        font-size: 1.1rem;
-        border-radius: 8px;
+        width: 48px;
+        height: 48px;
+        font-size: 1.5rem;
+        border-radius: 10px;
     }
 }
   

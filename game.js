@@ -466,6 +466,8 @@ canvas.addEventListener('mouseleave', function(e) {
     render();
   }
 });
+
+// Play Again button click handler (inside DOMContentLoaded)
 canvas.addEventListener('click', function(e) {
   if (gameState !== 'end') return;
   const rect = canvas.getBoundingClientRect();
