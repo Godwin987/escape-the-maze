@@ -1,15 +1,18 @@
+html, body {
+    height: 100%;
+    width: 100%;
+    box-sizing: border-box;
+}
+
 body {
     background-color: #111;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
+    width: 100vw;
     margin: 0;
-    /* Default background for welcome screen */
-}
-
-body.pink-grid-bg {
-    background: linear-gradient(135deg, #0a0847 0%, #a0005a 60%, #ff3576 100%);
+    overflow: hidden;
 }
 
 #welcome-screen {
@@ -24,6 +27,8 @@ body.pink-grid-bg {
     align-items: center;
     z-index: 10;
     text-align: center;
+    box-sizing: border-box;
+    padding: 2vw;
 }
 
 #welcome-screen h1 {
@@ -70,5 +75,48 @@ canvas {
     border: 2px solid #fff;
     display: block;
     margin: 0 auto;
+    max-width: 100vw;
+    max-height: 100vh;
+    width: 100vw;
+    height: 100vw;
+    box-sizing: border-box;
+}
+
+@media (max-width: 700px) {
+    #welcome-screen h1 {
+        font-size: 2.2rem;
+    }
+    #welcome-screen .desc {
+        font-size: 1.1rem;
+    }
+    #start-btn {
+        font-size: 1.2rem;
+        padding: 0.7rem 1.5rem;
+    }
+    canvas {
+        width: 98vw;
+        height: 98vw;
+        max-width: 98vw;
+        max-height: 98vw;
+    }
+}
+
+@media (max-width: 400px) {
+    #welcome-screen h1 {
+        font-size: 1.2rem;
+    }
+    #welcome-screen .desc {
+        font-size: 0.8rem;
+    }
+    #start-btn {
+        font-size: 0.8rem;
+        padding: 0.4rem 0.7rem;
+    }
+    canvas {
+        width: 96vw;
+        height: 96vw;
+        max-width: 96vw;
+        max-height: 96vw;
+    }
 }
   
