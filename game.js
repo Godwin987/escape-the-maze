@@ -471,8 +471,11 @@ canvas.addEventListener('mouseleave', function(e) {
 canvas.addEventListener('click', function(e) {
   if (gameState !== 'end') return;
   const rect = canvas.getBoundingClientRect();
-  const mx = e.clientX - rect.left;
-  const my = e.clientY - rect.top;
+  // Map mouse/touch coordinates to canvas coordinates
+  const scaleX = canvas.width / rect.width;
+  const scaleY = canvas.height / rect.height;
+  const mx = (e.clientX - rect.left) * scaleX;
+  const my = (e.clientY - rect.top) * scaleY;
   const centerY = canvas.height / 2;
   const imgY = centerY - 110;
   const textY = imgY + 110;
