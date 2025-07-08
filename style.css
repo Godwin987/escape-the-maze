@@ -1,0 +1,74 @@
+body {
+    background-color: #111;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    /* Default background for welcome screen */
+}
+
+body.pink-grid-bg {
+    background: linear-gradient(135deg, #0a0847 0%, #a0005a 60%, #ff3576 100%);
+}
+
+#welcome-screen {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(135deg, #ff69b4 0%, #ffa500 40%, #00bfff 70%, #00ff7f 100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+    text-align: center;
+}
+
+#welcome-screen h1 {
+    font-size: 3.5rem;
+    color: #fff;
+    font-family: 'Arial Black', Arial, sans-serif;
+    text-shadow: 0 0 24px #fff, 0 2px 8px #000;
+    margin-bottom: 1.5rem;
+    letter-spacing: 2px;
+}
+
+#welcome-screen .desc {
+    font-size: 1.5rem;
+    color: #fff;
+    font-family: 'Comic Sans MS', Comic Sans, cursive, sans-serif;
+    margin-bottom: 2.5rem;
+    text-shadow: 0 2px 8px #000;
+    line-height: 1.5;
+}
+
+#start-btn {
+    font-size: 2rem;
+    font-family: 'Arial Black', Arial, sans-serif;
+    padding: 1rem 3rem;
+    border: none;
+    border-radius: 40px;
+    background: linear-gradient(90deg, #ff69b4, #00bfff, #00ff7f);
+    color: #fff;
+    box-shadow: 0 0 32px #fff, 0 4px 16px #0008;
+    cursor: pointer;
+    transition: transform 0.15s, box-shadow 0.15s;
+    outline: none;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+#start-btn:hover, #start-btn:focus {
+    transform: scale(1.08);
+    box-shadow: 0 0 48px #fff, 0 8px 32px #000a;
+}
+
+canvas {
+    background-color: #222;
+    border: 2px solid #fff;
+    display: block;
+    margin: 0 auto;
+}
+  
