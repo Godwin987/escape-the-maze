@@ -25,7 +25,7 @@ body {
     top: 0; left: 0; right: 0; bottom: 0;
     width: 100vw;
     height: 100vh;
-    background: linear-gradient(135deg, #ff69b4 0%, #ffa500 40%, #00bfff 70%, #00ff7f 100%);
+    background: linear-gradient(135deg, #0a0847 0%, #1a0b5e 30%, #2d0b8a 70%, #4a0b8a 100%);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -38,19 +38,19 @@ body {
 
 #welcome-screen h1 {
     font-size: 3.5rem;
-    color: #fff;
+    color: #ffffff;
     font-family: 'Arial Black', Arial, sans-serif;
-    text-shadow: 0 0 24px #fff, 0 2px 8px #000;
+    text-shadow: 0 0 24px #fff, 0 2px 8px #000, 0 4px 16px #000;
     margin-bottom: 1.5rem;
     letter-spacing: 2px;
 }
 
 #welcome-screen .desc {
     font-size: 1.5rem;
-    color: #fff;
+    color: #ffffff;
     font-family: 'Comic Sans MS', Comic Sans, cursive, sans-serif;
     margin-bottom: 2.5rem;
-    text-shadow: 0 2px 8px #000;
+    text-shadow: 0 2px 8px #000, 0 4px 16px #000;
     line-height: 1.5;
 }
 
