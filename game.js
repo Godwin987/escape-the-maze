@@ -370,8 +370,8 @@ function bfs(start, goal) {
 }
 
 function aiMove(ai) {
-  // 70% chance to make a random move
-  if (Math.random() < 0.7) {
+  // 50% chance to make a random move
+  if (Math.random() < 0.5) {
     const directions = [ [0,1], [0,-1], [1,0], [-1,0] ];
     for (let i = 0; i < 4; i++) {
       const [dx, dy] = directions[Math.floor(Math.random() * directions.length)];
